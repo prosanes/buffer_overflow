@@ -1,0 +1,8 @@
+sysctl -w kernel.randomize_va_space=0
+
+gcc exploit.c -o exploit -Wall
+./exploit
+od -t x2 badfile
+
+gcc -fno-stack-protector -z execstack -o stack4 stack4.c -O0
+./stack4
